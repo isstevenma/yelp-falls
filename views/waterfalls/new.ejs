@@ -1,0 +1,46 @@
+<%- layout('layouts/boilerplate') %>
+    <div class="row">
+        <h1 class="text-center">New Waterfall</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/waterfalls" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="waterfall[title]" required>
+                    <div class="valid-feedback">
+                        Looks Great!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="waterfall[location]" required>
+                    <div class="valid-feedback">
+                        Looks Great!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Choose Your Image(s)</label>
+                    <input class="form-control" type="file" id="image" name="image" multiple>
+                </div>
+                <!-- <div class="mb-3">
+                    <label class="form-label" for="image">Image URL</label>
+                    <input class="form-control" type="text" id="image" name="waterfall[image]" required>
+                    <div class="valid-feedback">
+                        Looks Great!
+                    </div>
+                </div> -->
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="waterfall[description]"
+                        required></textarea>
+                    <div class="valid-feedback">
+                        Looks Great!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Add Campground</button>
+                </div>
+            </form>
+            <a href="/waterfalls">All waterfalls</a>
+        </div>
+    </div>

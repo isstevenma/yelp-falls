@@ -1,0 +1,41 @@
+<%- layout('layouts/boilerplate')%>
+    <div id="cluster-map">
+    </div>
+    <h1>All Waterfalls</h1>
+    <% for(let waterfall of waterfalls) { %>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                   <% if(waterfall.images.length) {%>
+                    <img class="img-fluid" alt="" src="<%=waterfall.images[0].url%>">
+                    <% } else {%> 
+                        <img class="img-fluid" alt="" src="https://res.cloudinary.com/dkyenyhnu/image/upload/v1627026395/sample.jpg">
+                    <% } %> 
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=waterfall.title%>
+                                <p class="card-text">
+                                    <%=waterfall.description%>
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <%=waterfall.location%>
+                                    </small>
+                                </p>
+                                <a href="/waterfalls/<%=waterfall._id%>" class="btn btn-primary">View
+                                    <%=waterfall.title%>
+                                </a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% } %>
+        <script>
+            const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+            const waterfalls = {features: <%- JSON.stringify(waterfalls) %>};
+        </script>
+        <script src="/javaScripts/clusterMap.js"></script>
